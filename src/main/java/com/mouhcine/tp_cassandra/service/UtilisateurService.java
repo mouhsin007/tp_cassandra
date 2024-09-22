@@ -5,6 +5,8 @@ import com.mouhcine.tp_cassandra.repository.UtilisateursRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class UtilisateurService {
     @Autowired
@@ -12,6 +14,7 @@ public class UtilisateurService {
 
     public String saveUser(String name, int age, String email){
         Utilisateurs utilisateurs = new Utilisateurs();
+        utilisateurs.setId(UUID.randomUUID());
         utilisateurs.setAge(age);
         utilisateurs.setName(name);
         utilisateurs.setEmail(email);
